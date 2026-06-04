@@ -2,7 +2,7 @@
 cat > hello-api << 'BINARY'
 #!/bin/bash
 while true; do
-echo -e "HTTP/1.1 200 OK\r\nContent-Type: application/json\r\n\r\n{\"status\":\"ok\"}" | nc -l -p 8080 -q 1
+echo -e "HTTP/1.1 200 OK\r\nContent-Type: application/json\r\n\r\n{\"status\":\"ok\"}" | nc -l -p 80 -q 1
 done
 BINARY
 chmod +x hello-api
