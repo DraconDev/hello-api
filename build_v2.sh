@@ -1,0 +1,10 @@
+#!/bin/bash
+cat > hello-api << 'BINARY'
+#!/bin/bash
+sleep 2  # Wait for systemd to finish starting
+while true; do
+echo -e "HTTP/1.1 200 OK\r\nContent-Type: application/json\r\n\r\n{\"status\":\"ok\",\"version\":\"v2\"}" | nc -l -p 80 -q 1
+done
+BINARY
+chmod +x hello-api
+echo "Build v2 complete"
